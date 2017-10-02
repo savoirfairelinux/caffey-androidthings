@@ -56,9 +56,19 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         requireNotNull(name) { "no name provided in Intent extras" }
         coffee = Coffee(name, price)
 
+        initSegmentDisplay()
+        initLedStrips()
+        initButtons()
+
         seekBarSugar.max = MAX_SUGAR
         seekBarSugar.setOnSeekBarChangeListener(this)
 
+        coffeeButton.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun initSegmentDisplay() {
         // Initialize 7-segment display
         try {
             mDisplay = RainbowHat.openDisplay()
@@ -68,7 +78,9 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         } catch (e: IOException) {
             throw RuntimeException("Error initializing display", e)
         }
+    }
 
+    private fun initLedStrips() {
         // Initialize LED strip
         try {
             mLedstrip = RainbowHat.openLedStrip()
@@ -83,7 +95,9 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         } catch (e: IOException) {
             throw RuntimeException("Error initializing LED strip", e)
         }
+    }
 
+    private fun initButtons() {
         // Initialize buttons
         try {
             buttonA = RainbowHat.openButtonA()
@@ -102,7 +116,7 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
                 displayPrice(coffee.price + 4)
             }
         } catch (e: IOException) {
-            throw RuntimeException("Error initializing LED strip", e)
+            throw RuntimeException("Error initializing Buttons", e)
         }
     }
 
@@ -112,29 +126,25 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
             mDisplay.clear()
             mDisplay.setEnabled(false)
             mDisplay.close()
-        } catch (e: IOException) {
-            Log.e(TAG, "Error closing display", e)
-        }
 
-        try {
             mLedstrip.brightness = 0
             mLedstrip.write(IntArray(7))
             mLedstrip.close()
+
+            buttonA.close()
+            buttonB.close()
+            buttonC.close()
         } catch (e: IOException) {
-            Log.e(TAG, "Error closing LED strip", e)
+            Log.e(TAG, "Error closing display", e)
         }
     }
 
-    fun displayPrice(price: Int) {
-
-        var diplayablePrice: String
-
-        diplayablePrice = String.format("%2.2f", price / 10.0)
+    private fun displayPrice(price: Int) {
+        val displayablePrice: String = String.format("%2.2f", price / 10.0)
 
         mDisplay.setBrightness(Ht16k33.HT16K33_BRIGHTNESS_MAX)
-        mDisplay.display(diplayablePrice)
+        mDisplay.display(displayablePrice)
         mDisplay.setEnabled(true)
-
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar) {
