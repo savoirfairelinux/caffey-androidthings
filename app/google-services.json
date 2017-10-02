@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "958410534474",
+    "firebase_url": "https://caffey-b6cdc.firebaseio.com",
+    "project_id": "caffey-b6cdc",
+    "storage_bucket": "caffey-b6cdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958410534474:android:334cc6ca3c1bdb1e",
+        "android_client_info": {
+          "package_name": "com.savoirfairelinux.caffey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958410534474-b7eurmi3s7kerph64i9aral250ce5e5h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.savoirfairelinux.caffey",
+            "certificate_hash": "82e35fdd4556caf4b04f5a3cded5180b4b8ac953"
+          }
+        },
+        {
+          "client_id": "958410534474-ihnet5mqm2bnp2jfk92a790vbpam2aj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC94Z1v-_gdqni7bXMX-_BcEtrZAOtAww"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958410534474-ihnet5mqm2bnp2jfk92a790vbpam2aj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

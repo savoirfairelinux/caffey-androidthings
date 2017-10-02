@@ -60,12 +60,6 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         initLedStrips()
         initButtons()
 
-        seekBarSugar.max = MAX_SUGAR
-        seekBarSugar.setOnSeekBarChangeListener(this)
-
-        coffeeButton.setOnClickListener {
-            finish()
-        }
     }
 
     private fun initSegmentDisplay() {
@@ -104,15 +98,12 @@ class CoffeeDetailsActivity : Activity(), SeekBar.OnSeekBarChangeListener {
             buttonB = RainbowHat.openButtonB()
             buttonC = RainbowHat.openButtonC()
             buttonA.setOnButtonEventListener { _, _ ->
-                coffeeSize.text = "Petit"
                 displayPrice(coffee.price)
             }
             buttonB.setOnButtonEventListener { _, _ ->
-                coffeeSize.text = "Moyen"
                 displayPrice(coffee.price + 2)
             }
             buttonC.setOnButtonEventListener { _, _ ->
-                coffeeSize.text = "Grand"
                 displayPrice(coffee.price + 4)
             }
         } catch (e: IOException) {
