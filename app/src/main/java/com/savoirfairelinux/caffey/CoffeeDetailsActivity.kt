@@ -25,7 +25,7 @@ private const val INTENT_NAME = "NAME"
 
 class CoffeeDetailsActivity : Activity() {
 
-    lateinit var coffee: Coffee;
+    lateinit var coffee: Coffee
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +35,21 @@ class CoffeeDetailsActivity : Activity() {
         requireNotNull(price) { "no price provided in Intent extras" }
         requireNotNull(name) { "no name provided in Intent extras" }
         coffee = Coffee(name, price)
+        displayPrice(coffee.price)
+    }
+
+    fun displayPrice(price:Int){
+
+        var diplayablePrice: String
+
+        diplayablePrice = String.format("%2.2f", price / 10.0)
+
         val segment = RainbowHat.openDisplay()
         segment.setBrightness(Ht16k33.HT16K33_BRIGHTNESS_MAX)
-        segment.display(coffee.price)
+        segment.display(diplayablePrice)
         segment.setEnabled(true)
         // Close the device when done.
         segment.close()
     }
+
 }
