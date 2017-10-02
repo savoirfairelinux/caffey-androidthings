@@ -19,7 +19,6 @@ class MainActivity : Activity() {
     var coffee1: Coffee? = null
 
     var coffee2: Coffee? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
