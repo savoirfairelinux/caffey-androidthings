@@ -14,15 +14,20 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        imageButton.setOnClickListener {
+        view_1.setOnClickListener {
             // Handler code here.
-            Log.d("Activiy", "button1")// add custom flags
-            startActivity(UserDetailIntent(Coffee("Coffee1", price = 10)))
+            Log.d("Activity", "button1")// add custom flags
+            startActivity(UserDetailIntent(Coffee(getString(R.string.espresso), price = 10)))
         }
-        imageButton2.setOnClickListener {
+        view_2.setOnClickListener {
             // Handler code here.
-            Log.d("Activiy", "button2")
-            startActivity(UserDetailIntent(Coffee("Coffee2", price = 15)))
+            Log.d("Activity", "button2")
+            startActivity(UserDetailIntent(Coffee(getString(R.string.americano), price = 15)))
+        }
+        view_3.setOnClickListener {
+            // Handler code here.
+            Log.d("Activity", "button3")
+            startActivity(UserDetailIntent(Coffee(getString(R.string.cappuccino), price = 20)))
         }
     }
 }

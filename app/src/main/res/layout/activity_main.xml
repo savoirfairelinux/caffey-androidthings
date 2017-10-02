@@ -4,33 +4,248 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLightBrown"
     tools:context="com.savoirfairelinux.caffey.MainActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="217dp"
-        android:layout_height="155dp"
-        android:src="@drawable/cafe1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/imageButton2"
-        app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/typeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/coffee_type_title"
+        android:textAllCaps="true"
+        android:textColor="@color/colorBrown"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="235dp"
-        android:layout_height="152dp"
-        android:src="@drawable/cafe2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageButton"
-        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/view_1"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorLightBlue"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/view_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeTitle" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textEspresso"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="@string/espresso"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/view_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Version 1.0"/>
+        app:layout_constraintTop_toTopOf="@id/view_1" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_espresso"
+        app:layout_constraintBottom_toBottomOf="@id/view_1"
+        app:layout_constraintEnd_toStartOf="@id/view_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEspresso" />
+
+    <View
+        android:id="@+id/view_2"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBrown"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/view_3"
+        app:layout_constraintStart_toEndOf="@id/view_1"
+        app:layout_constraintTop_toBottomOf="@+id/typeTitle" />
+
+    <TextView
+        android:id="@+id/textAmericano"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="@string/americano"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/view_3"
+        app:layout_constraintStart_toEndOf="@id/view_1"
+        app:layout_constraintTop_toTopOf="@id/view_2" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_americano"
+        app:layout_constraintBottom_toBottomOf="@id/view_2"
+        app:layout_constraintEnd_toStartOf="@id/view_3"
+        app:layout_constraintStart_toEndOf="@id/view_1"
+        app:layout_constraintTop_toBottomOf="@+id/textAmericano" />
+
+    <View
+        android:id="@+id/view_3"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorLightBlue"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_2"
+        app:layout_constraintTop_toBottomOf="@+id/typeTitle" />
+
+    <TextView
+        android:id="@+id/textCappuccino"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="@string/cappuccino"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_2"
+        app:layout_constraintTop_toTopOf="@id/view_3" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_cappuccino"
+        app:layout_constraintBottom_toBottomOf="@id/view_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_2"
+        app:layout_constraintTop_toBottomOf="@+id/textAmericano" />
+
+    <View
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorLightBlue"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/circle_1"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/coffee_type"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_2"
+        app:layout_constraintStart_toEndOf="@id/circle_1"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_2"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_2"
+        app:layout_constraintStart_toEndOf="@id/text_1"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/coffee_size"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_3"
+        app:layout_constraintStart_toEndOf="@id/circle_2"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_3"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_3"
+        app:layout_constraintStart_toEndOf="@id/text_2"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/sugar"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_4"
+        app:layout_constraintStart_toEndOf="@id/circle_3"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_4"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_4"
+        app:layout_constraintStart_toEndOf="@id/text_3"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_4"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/pay"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_5"
+        app:layout_constraintStart_toEndOf="@id/circle_4"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_5"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_5"
+        app:layout_constraintStart_toEndOf="@id/text_4"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_5"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/brewing"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/circle_5"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
 
 </android.support.constraint.ConstraintLayout>
