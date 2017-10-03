@@ -42,21 +42,31 @@ class CoffeeDetailsActivity : Activity() {
         coffee = Coffee(name, price)
 
         view_1.setOnClickListener {
-            coffee.size = SIZE_SMALL
-            goToSugar(coffee)
+            val selected = Coffee(coffee.name, coffee.price + PRICE_SMALL)
+            selected.size = SIZE_SMALL
+            goToSugar(selected)
         }
         view_2.setOnClickListener {
-            coffee.size = SIZE_MEDIUM
-            goToSugar(coffee)
+            val selected = Coffee(coffee.name, coffee.price + PRICE_MEDIUM)
+            selected.size = SIZE_MEDIUM
+            goToSugar(selected)
         }
         view_3.setOnClickListener {
-            coffee.size = SIZE_LARGE
-            goToSugar(coffee)
+            val selected = Coffee(coffee.name, coffee.price + PRICE_LARGE)
+            selected.size = SIZE_LARGE
+            goToSugar(selected)
         }
 
         backButton.setOnClickListener {
             finish()
         }
+        textSmallPrice.text = formatPrice(coffee.price + PRICE_SMALL)
+        textMediumPrice.text = formatPrice(coffee.price + PRICE_MEDIUM)
+        textLargePrice.text = formatPrice(coffee.price + PRICE_LARGE)
+    }
+
+    fun formatPrice(price: Int): String {
+        return String.format("%1.2f$", price / 10.0)
     }
 
     override fun onResume() {

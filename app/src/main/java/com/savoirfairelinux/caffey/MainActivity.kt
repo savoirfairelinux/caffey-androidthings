@@ -38,6 +38,7 @@ class MainActivity : Activity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 coffee1 = dataSnapshot.getValue(Coffee::class.java)
+                textEspresso.text = coffee1!!.name
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -53,6 +54,7 @@ class MainActivity : Activity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 coffee2 = dataSnapshot.getValue(Coffee::class.java)
+                textAmericano.text = coffee2!!.name
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -68,6 +70,7 @@ class MainActivity : Activity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 coffee3 = dataSnapshot.getValue(Coffee::class.java)
+                textCappuccino.text = coffee3!!.name
             }
 
             override fun onCancelled(error: DatabaseError) {
