@@ -15,7 +15,9 @@ const val PRICE_LARGE = 3
 const val INTENT_PRICE = "PRICE"
 const val INTENT_NAME = "NAME"
 const val INTENT_SIZE = "SIZE"
+const val INTENT_SUGAR = "SUGAR"
 
 data class Coffee(val name: String = "", val price: Int = 0) {
     var size: Int = 1
+    var sugar: Int = 1
 }

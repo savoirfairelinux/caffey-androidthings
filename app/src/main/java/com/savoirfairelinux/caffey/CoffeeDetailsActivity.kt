@@ -66,7 +66,7 @@ class CoffeeDetailsActivity : Activity() {
     }
 
     fun formatPrice(price: Int): String {
-        return String.format("%1.2f$", price / 10.0)
+        return String.format("$%1.2f", price / 10.0)
     }
 
     override fun onResume() {

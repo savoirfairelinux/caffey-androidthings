@@ -3,6 +3,7 @@
 
     <string name="coffee_size_title">Choose your coffee size</string>
     <string name="coffee_type_title">Choose your coffee type</string>
+    <string name="coffee_summary_title">Summary</string>
 
     <string name="espresso">Espresso</string>
     <string name="americano">Americano</string>
