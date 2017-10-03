@@ -1,6 +1,7 @@
 package com.savoirfairelinux.caffey
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_brewing.*
 
@@ -17,6 +18,7 @@ class BrewingActivity : Activity() {
 
         iconBrewing.setOnClickListener {
             finishAffinity()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }

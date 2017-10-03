@@ -29,61 +29,232 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/label1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/typeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coffee Type :"/>
+        android:layout_marginRight="16dp"
+        android:text="Coffee Type :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/label2"
+        app:layout_constraintEnd_toStartOf="@id/value1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typeTitle"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label1"
         android:id="@+id/label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coffee Size :"/>
+        android:layout_marginRight="16dp"
+        android:text="Coffee Size :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/label3"
+        app:layout_constraintEnd_toStartOf="@id/value2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label1"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label2"
         android:id="@+id/label3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sugar :"/>
+        android:layout_marginRight="16dp"
+        android:text="Sugar :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/label4"
+        app:layout_constraintEnd_toStartOf="@id/value3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label2" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label3"
         android:id="@+id/label4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total :"/>
+        android:layout_marginRight="16dp"
+        android:text="Total :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/payButton"
+        app:layout_constraintEnd_toStartOf="@id/value4"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label3" />
 
     <TextView
-    android:id="@+id/value1"
-        app:layout_constraintTop_toBottomOf="@id/typeTitle"
+        android:id="@+id/value1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coffee Type :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/label1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Coffee Type :"/>
+        app:layout_constraintTop_toTopOf="@id/label1" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label1"
-        app:layout_constraintStart_toEndOf="@id/label2"
         android:id="@+id/value2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coffee Size :"/>
+        android:text="Coffee Size :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label2"
+        app:layout_constraintTop_toTopOf="@id/label2" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label2"
-        app:layout_constraintStart_toEndOf="@id/label3"
         android:id="@+id/value3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sugar :"/>
+        android:text="Sugar :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label3"
+        app:layout_constraintTop_toTopOf="@id/label3" />
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/label3"
-        app:layout_constraintStart_toEndOf="@id/label4"
         android:id="@+id/value4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total :"/>
+        android:text="Total :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label4"
+        app:layout_constraintTop_toTopOf="@id/label4" />
+
+    <Button
+        android:id="@+id/payButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorBrown"
+        android:drawableTint="@color/colorBrown"
+        android:text="@string/next"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorLightBlue"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/circle_1"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/coffee_type"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_2"
+        app:layout_constraintStart_toEndOf="@id/circle_1"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_2"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_2"
+        app:layout_constraintStart_toEndOf="@id/text_1"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/coffee_size"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_3"
+        app:layout_constraintStart_toEndOf="@id/circle_2"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_3"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_3"
+        app:layout_constraintStart_toEndOf="@id/text_2"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/sugar"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_4"
+        app:layout_constraintStart_toEndOf="@id/circle_3"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_4"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_4"
+        app:layout_constraintStart_toEndOf="@id/text_3"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_4"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/pay"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/circle_5"
+        app:layout_constraintStart_toEndOf="@id/circle_4"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <ImageView
+        android:id="@+id/circle_5"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toStartOf="@id/text_5"
+        app:layout_constraintStart_toEndOf="@id/text_4"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
+
+    <TextView
+        android:id="@+id/text_5"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_circle_full"
+        android:text="@string/brewing"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/circle_5"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout" />
 
 </android.support.constraint.ConstraintLayout>
