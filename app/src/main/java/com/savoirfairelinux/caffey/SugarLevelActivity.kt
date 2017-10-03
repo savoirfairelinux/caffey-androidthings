@@ -87,7 +87,8 @@ class SugarLevelActivity : Activity() {
         }
 
         nextButton.setOnClickListener {
-
+            coffee.sugar = sugarLevel
+            startActivity(SummaryActivityIntent(coffee))
         }
     }
 

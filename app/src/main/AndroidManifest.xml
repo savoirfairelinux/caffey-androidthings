@@ -32,6 +32,9 @@
         <activity
             android:name=".BrewingActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SummaryActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
