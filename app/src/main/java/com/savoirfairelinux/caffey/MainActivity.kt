@@ -4,12 +4,15 @@ package com.savoirfairelinux.caffey
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
+import com.google.android.things.contrib.driver.button.Button
+import com.google.android.things.contrib.driver.rainbowhat.RainbowHat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.savoirfairelinux.caffey.model.Coffee
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.IOException
 
 
 class MainActivity : Activity() {
@@ -19,6 +22,10 @@ class MainActivity : Activity() {
     var coffee1: Coffee? = null
     var coffee2: Coffee? = null
     var coffee3: Coffee? = null
+
+    private lateinit var buttonA: Button
+    private lateinit var buttonB: Button
+    private lateinit var buttonC: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,16 +77,53 @@ class MainActivity : Activity() {
         })
 
         view_1.setOnClickListener {
-            Log.d("Activiy", "button1")// add custom flags
-            startActivity(UserDetailIntent(coffee1!!))
+            goToSize(coffee1!!)
         }
         view_2.setOnClickListener {
-            Log.d("Activiy", "button2")
-            startActivity(UserDetailIntent(coffee2!!))
+            goToSize(coffee2!!)
         }
         view_3.setOnClickListener {
-            Log.d("Activiy", "button2")
-            startActivity(UserDetailIntent(coffee3!!))
+            goToSize(coffee3!!)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initButtons()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        try {
+            buttonA.close()
+            buttonB.close()
+            buttonC.close()
+        } catch (e: IOException) {
+            Log.e(TAG, "Error closing display", e)
+        }
+    }
+
+    private fun initButtons() {
+        // Initialize buttons
+        try {
+            buttonA = RainbowHat.openButtonA()
+            buttonB = RainbowHat.openButtonB()
+            buttonC = RainbowHat.openButtonC()
+            buttonA.setOnButtonEventListener { _, _ ->
+                goToSize(coffee1!!)
+            }
+            buttonB.setOnButtonEventListener { _, _ ->
+                goToSize(coffee2!!)
+            }
+            buttonC.setOnButtonEventListener { _, _ ->
+                goToSize(coffee3!!)
+            }
+        } catch (e: IOException) {
+            throw RuntimeException("Error initializing Buttons", e)
+        }
+    }
+
+    private fun goToSize(coffee: Coffee) {
+        startActivity(UserDetailIntent(coffee))
     }
 }
