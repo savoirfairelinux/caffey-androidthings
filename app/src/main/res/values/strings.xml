@@ -3,11 +3,17 @@
 
     <string name="coffee_size_title">Choose your coffee size</string>
     <string name="coffee_type_title">Choose your coffee type</string>
+    <string name="coffee_sugar_title">How much sugar</string>
+
+    <string name="coffee_brewing_title">Brewing</string>
+    <string name="coffee_brewing_text">Relax while your coffee is prepared</string>
     <string name="coffee_summary_title">Summary</string>
 
     <string name="espresso">Espresso</string>
     <string name="americano">Americano</string>
     <string name="cappuccino">Cappuccino</string>
+
+    <string name="next">Next</string>
 
     <string name="small">Small</string>
     <string name="medium">Medium</string>

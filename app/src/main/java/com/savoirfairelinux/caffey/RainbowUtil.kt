@@ -41,7 +41,7 @@ object RainbowUtil {
         val colors = IntArray(sRainbowColors.size)
 
         sugarRanges.indices
-                .filter { sugarLevel >= sugarRanges[it] }
+                .takeWhile { it < sugarLevel }
                 .forEach { colors[it] = sRainbowColors.reversedArray()[it] }
 
         return colors.reversedArray()

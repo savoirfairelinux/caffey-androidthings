@@ -23,7 +23,15 @@
 
         <activity
             android:name=".CoffeeDetailsActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".SugarLevelActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".BrewingActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

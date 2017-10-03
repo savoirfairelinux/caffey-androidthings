@@ -3,17 +3,15 @@ package com.savoirfairelinux.caffey
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.SeekBar
 import com.google.android.things.contrib.driver.apa102.Apa102
 import com.google.android.things.contrib.driver.ht16k33.AlphanumericDisplay
 import com.google.android.things.contrib.driver.ht16k33.Ht16k33
 import com.google.android.things.contrib.driver.rainbowhat.RainbowHat
 import com.savoirfairelinux.caffey.model.*
+import kotlinx.android.synthetic.main.activity_sugar_level.*
 import java.io.IOException
-import java.util.*
 
 /**
  * Created by hdesousa on 03/10/17.
@@ -31,7 +29,7 @@ fun Context.SugarLevelIntent(coffee: Coffee): Intent {
     }
 }
 
-class SugarLevelActivity : Activity(), SeekBar.OnSeekBarChangeListener {
+class SugarLevelActivity : Activity() {
 
     private val TAG = CoffeeDetailsActivity::class.java.simpleName
 
@@ -40,12 +38,14 @@ class SugarLevelActivity : Activity(), SeekBar.OnSeekBarChangeListener {
 
     lateinit var coffee: Coffee
 
+    var sugarLevel: Int = 2
+
     private lateinit var mDisplay: AlphanumericDisplay
     private lateinit var mLedstrip: Apa102
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        setContentView(R.layout.activity_sugar_level)
         val price = intent.getIntExtra(INTENT_PRICE, 0)
         val name = intent.getStringExtra(INTENT_NAME)
         val size = intent.getIntExtra(INTENT_SIZE, SIZE_SMALL)
@@ -53,6 +53,42 @@ class SugarLevelActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         requireNotNull(name) { "no name provided in Intent extras" }
         coffee = Coffee(name, price)
         coffee.size = size
+
+        sugarLevelText.text = sugarLevel.toString()
+
+        backButton.setOnClickListener {
+            finish()
+        }
+
+        minusButton.setOnClickListener {
+            if (sugarLevel > 0) {
+                sugarLevel--
+                sugarLevelText.text = sugarLevel.toString()
+                try {
+                    val colors = RainbowUtil.getWeatherStripColors(sugarLevel)
+                    mLedstrip.write(colors)
+                } catch (e: IOException) {
+                    Log.e(TAG, "Error updating display", e)
+                }
+            }
+        }
+
+        addButton.setOnClickListener {
+            if (sugarLevel < 7) {
+                sugarLevel++
+                sugarLevelText.text = sugarLevel.toString()
+                try {
+                    val colors = RainbowUtil.getWeatherStripColors(sugarLevel)
+                    mLedstrip.write(colors)
+                } catch (e: IOException) {
+                    Log.e(TAG, "Error updating display", e)
+                }
+            }
+        }
+
+        nextButton.setOnClickListener {
+
+        }
     }
 
     override fun onResume() {
@@ -80,8 +116,8 @@ class SugarLevelActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         try {
             mLedstrip = RainbowHat.openLedStrip()
             mLedstrip.brightness = LEDSTRIP_BRIGHTNESS
-            val colors = IntArray(7)
-            Arrays.fill(colors, Color.RED)
+
+            val colors = RainbowUtil.getWeatherStripColors(sugarLevel)
             mLedstrip.write(colors)
             // Because of a known APA102 issue, write the initial value twice.
             mLedstrip.write(colors)
@@ -113,22 +149,5 @@ class SugarLevelActivity : Activity(), SeekBar.OnSeekBarChangeListener {
         mDisplay.setBrightness(Ht16k33.HT16K33_BRIGHTNESS_MAX)
         mDisplay.display(displayablePrice)
         mDisplay.setEnabled(true)
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar) {
-
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar) {
-
-    }
-
-    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-        try {
-            val colors = RainbowUtil.getWeatherStripColors(progress)
-            mLedstrip.write(colors)
-        } catch (e: IOException) {
-            Log.e(TAG, "Error updating display", e)
-        }
     }
 }
