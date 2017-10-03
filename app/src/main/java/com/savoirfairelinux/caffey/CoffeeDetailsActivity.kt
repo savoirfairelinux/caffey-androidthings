@@ -96,16 +96,19 @@ class CoffeeDetailsActivity : Activity() {
             buttonB = RainbowHat.openButtonB()
             buttonC = RainbowHat.openButtonC()
             buttonA.setOnButtonEventListener { _, _ ->
-                coffee.size = SIZE_SMALL
-                goToSugar(coffee)
+                val selected = Coffee(coffee.name, coffee.price + PRICE_SMALL)
+                selected.size = SIZE_SMALL
+                goToSugar(selected)
             }
             buttonB.setOnButtonEventListener { _, _ ->
-                coffee.size = SIZE_MEDIUM
-                goToSugar(coffee)
+                val selected = Coffee(coffee.name, coffee.price + PRICE_MEDIUM)
+                selected.size = SIZE_MEDIUM
+                goToSugar(selected)
             }
             buttonC.setOnButtonEventListener { _, _ ->
-                coffee.size = SIZE_LARGE
-                goToSugar(coffee)
+                val selected = Coffee(coffee.name, coffee.price + PRICE_LARGE)
+                selected.size = SIZE_LARGE
+                goToSugar(selected)
             }
         } catch (e: IOException) {
             throw RuntimeException("Error initializing Buttons", e)
