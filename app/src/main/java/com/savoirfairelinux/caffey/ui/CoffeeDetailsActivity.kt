@@ -1,4 +1,4 @@
-package com.savoirfairelinux.caffey
+package com.savoirfairelinux.caffey.ui
 
 import android.app.Activity
 import android.content.Context
@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import com.google.android.things.contrib.driver.button.Button
 import com.google.android.things.contrib.driver.rainbowhat.RainbowHat
+import com.savoirfairelinux.caffey.R
 import com.savoirfairelinux.caffey.model.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import java.io.IOException
-
 
 /**
  * Created by lsiret on 17-10-02.
@@ -35,10 +35,10 @@ class CoffeeDetailsActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
         val price = intent.getIntExtra(INTENT_PRICE, 0)
         val name = intent.getStringExtra(INTENT_NAME)
-        requireNotNull(price) { "no price provided in Intent extras" }
-        requireNotNull(name) { "no name provided in Intent extras" }
+
         coffee = Coffee(name, price)
 
         view_1.setOnClickListener {
@@ -65,7 +65,7 @@ class CoffeeDetailsActivity : Activity() {
         textLargePrice.text = formatPrice(coffee.price + PRICE_LARGE)
     }
 
-    fun formatPrice(price: Int): String {
+    private fun formatPrice(price: Int): String {
         return String.format("$%1.2f", price / 10.0)
     }
 

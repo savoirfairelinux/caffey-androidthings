@@ -1,4 +1,4 @@
-package com.savoirfairelinux.caffey
+package com.savoirfairelinux.caffey.ui
 
 import android.graphics.Color
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightBrown"
-    tools:context="com.savoirfairelinux.caffey.MainActivity">
+    tools:context="com.savoirfairelinux.caffey.ui.MainActivity">
 
     <ImageView
         android:id="@+id/backButton"

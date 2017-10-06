@@ -1,9 +1,10 @@
-package com.savoirfairelinux.caffey
+package com.savoirfairelinux.caffey.ui
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.savoirfairelinux.caffey.R
 import com.savoirfairelinux.caffey.model.*
 import kotlinx.android.synthetic.main.activity_summary.*
 

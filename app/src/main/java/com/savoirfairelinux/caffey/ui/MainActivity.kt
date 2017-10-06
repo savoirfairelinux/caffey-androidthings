@@ -1,4 +1,4 @@
-package com.savoirfairelinux.caffey
+package com.savoirfairelinux.caffey.ui
 
 
 import android.app.Activity
@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.savoirfairelinux.caffey.R
 import com.savoirfairelinux.caffey.model.Coffee
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.IOException

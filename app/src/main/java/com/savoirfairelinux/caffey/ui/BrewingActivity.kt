@@ -1,8 +1,9 @@
-package com.savoirfairelinux.caffey
+package com.savoirfairelinux.caffey.ui
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import com.savoirfairelinux.caffey.R
 import kotlinx.android.synthetic.main.activity_brewing.*
 
 /**
@@ -10,8 +11,6 @@ import kotlinx.android.synthetic.main.activity_brewing.*
  */
 
 class BrewingActivity : Activity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brewing)

@@ -6,7 +6,7 @@
         <uses-library android:name="com.google.android.things" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,18 +22,18 @@
         </activity>
 
         <activity
-            android:name=".CoffeeDetailsActivity"
+            android:name=".ui.CoffeeDetailsActivity"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".SugarLevelActivity"
+            android:name=".ui.SugarLevelActivity"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".BrewingActivity"
+            android:name=".ui.BrewingActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".SummaryActivity"
+            android:name=".ui.SummaryActivity"
             android:theme="@style/AppTheme" />
     </application>
 
