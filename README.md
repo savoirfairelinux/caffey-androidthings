@@ -9,4 +9,4 @@ The app let the user choose the size, level of sugar and kind of coffee you want
  - Four alphanumeric displays shows the price
  - Seven multicolor LEDs shows the sugar level
  
- The UI is made with Android components and its written in Kotlin !
+ The UI is made with Android components and the code is in Kotlin !
