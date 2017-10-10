@@ -34,15 +34,17 @@ import com.savoirfairelinux.caffey.model.*
 import kotlinx.android.synthetic.main.activity_sugar_level.*
 import java.io.IOException
 
-fun Context.SugarLevelIntent(coffee: Coffee): Intent {
-    return Intent(this, SugarLevelActivity::class.java).apply {
-        putExtra(INTENT_PRICE, coffee.price)
-        putExtra(INTENT_NAME, coffee.name)
-        putExtra(INTENT_SIZE, coffee.size)
-    }
-}
-
 class SugarLevelActivity : Activity() {
+
+    companion object {
+        fun newIntent(context: Context, coffee: Coffee): Intent {
+            val intent = Intent(context, SugarLevelActivity::class.java)
+            intent.putExtra(INTENT_PRICE, coffee.price)
+            intent.putExtra(INTENT_NAME, coffee.name)
+            intent.putExtra(INTENT_SIZE, coffee.size)
+            return intent
+        }
+    }
 
     private val TAG = CoffeeDetailsActivity::class.java.simpleName
 
@@ -101,7 +103,7 @@ class SugarLevelActivity : Activity() {
 
         nextButton.setOnClickListener {
             coffee.sugar = sugarLevel
-            startActivity(SummaryActivityIntent(coffee))
+            startActivity(SummaryActivity.newIntent(this, coffee))
         }
     }
 
