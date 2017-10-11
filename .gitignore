@@ -6,3 +6,9 @@
 /build
 /captures
 .externalNativeBuild
+.gradle
+.DS_Store
+*.apk
+*.aar
+*.zip
+google-services.json
