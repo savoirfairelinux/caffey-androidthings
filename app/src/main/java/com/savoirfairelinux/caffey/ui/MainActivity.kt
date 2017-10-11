@@ -30,10 +30,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.savoirfairelinux.caffey.R
+import com.savoirfairelinux.caffey.model.COFFEE_1
+import com.savoirfairelinux.caffey.model.COFFEE_2
+import com.savoirfairelinux.caffey.model.COFFEE_3
 import com.savoirfairelinux.caffey.model.Coffee
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.IOException
-
 
 class MainActivity : Activity() {
 
@@ -51,7 +53,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("coffee1")
+        val myRef = database.getReference(COFFEE_1)
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -67,7 +69,7 @@ class MainActivity : Activity() {
             }
         })
 
-        val myRef2 = database.getReference("coffee2")
+        val myRef2 = database.getReference(COFFEE_2)
 
         myRef2.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -83,7 +85,7 @@ class MainActivity : Activity() {
             }
         })
 
-        val myRef3 = database.getReference("coffee3")
+        val myRef3 = database.getReference(COFFEE_3)
 
         myRef3.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -147,6 +149,6 @@ class MainActivity : Activity() {
     }
 
     private fun goToSize(coffee: Coffee) {
-        startActivity(UserDetailIntent(coffee))
+        startActivity(CoffeeDetailsActivity.newIntent(this, coffee))
     }
 }

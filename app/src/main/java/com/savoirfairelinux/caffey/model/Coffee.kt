@@ -20,6 +20,10 @@
  */
 package com.savoirfairelinux.caffey.model
 
+const val COFFEE_1 = "coffee1"
+const val COFFEE_2 = "coffee2"
+const val COFFEE_3 = "coffee3"
+
 const val SIZE_SMALL = 1
 const val SIZE_MEDIUM = 2
 const val SIZE_LARGE = 3

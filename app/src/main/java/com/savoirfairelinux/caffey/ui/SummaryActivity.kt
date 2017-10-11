@@ -28,20 +28,18 @@ import com.savoirfairelinux.caffey.R
 import com.savoirfairelinux.caffey.model.*
 import kotlinx.android.synthetic.main.activity_summary.*
 
-/**
- * Created by lsiret on 17-10-02.
- */
-
-fun Context.SummaryActivityIntent(coffee: Coffee): Intent {
-    return Intent(this, SummaryActivity::class.java).apply {
-        putExtra(INTENT_PRICE, coffee.price)
-        putExtra(INTENT_NAME, coffee.name)
-        putExtra(INTENT_SIZE, coffee.size)
-        putExtra(INTENT_SUGAR, coffee.sugar)
-    }
-}
-
 class SummaryActivity : Activity() {
+
+    companion object {
+        fun newIntent(context: Context, coffee: Coffee): Intent {
+            val intent = Intent(context, SummaryActivity::class.java)
+            intent.putExtra(INTENT_PRICE, coffee.price)
+            intent.putExtra(INTENT_NAME, coffee.name)
+            intent.putExtra(INTENT_SIZE, coffee.size)
+            intent.putExtra(INTENT_SUGAR, coffee.sugar)
+            return intent
+        }
+    }
 
     private val TAG = CoffeeDetailsActivity::class.java.simpleName
 

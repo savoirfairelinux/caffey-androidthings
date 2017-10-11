@@ -32,14 +32,16 @@ import com.savoirfairelinux.caffey.model.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import java.io.IOException
 
-fun Context.UserDetailIntent(coffee: Coffee): Intent {
-    return Intent(this, CoffeeDetailsActivity::class.java).apply {
-        putExtra(INTENT_PRICE, coffee.price)
-        putExtra(INTENT_NAME, coffee.name)
-    }
-}
-
 class CoffeeDetailsActivity : Activity() {
+
+    companion object {
+        fun newIntent(context: Context, coffee: Coffee): Intent {
+            val intent = Intent(context, CoffeeDetailsActivity::class.java)
+            intent.putExtra(INTENT_PRICE, coffee.price)
+            intent.putExtra(INTENT_NAME, coffee.name)
+            return intent
+        }
+    }
 
     private val TAG = CoffeeDetailsActivity::class.java.simpleName
 
@@ -103,7 +105,7 @@ class CoffeeDetailsActivity : Activity() {
     }
 
     private fun goToSugar(coffee: Coffee) {
-        startActivity(SugarLevelIntent(coffee))
+        startActivity(SugarLevelActivity.newIntent(this, coffee))
     }
 
     private fun initButtons() {
